@@ -1,6 +1,4 @@
-import db.DBDirector;
-import db.DBHelper;
-import db.DBStudio;
+import db.*;
 import models.Actor;
 import models.Director;
 import models.Film;
@@ -39,11 +37,31 @@ public class Runner {
         Actor actor3 = new Actor("Helena", "Bonham Carter", 10000000.00);
         DBHelper.save(actor3);
 
+        List<Film> allFilms = DBHelper.getAll(Film.class);
+
+        List<Actor> allActors = DBHelper.getAll(Actor.class);
+
+        List<Director> allDirectors = DBHelper.getAll(Director.class);
+
+        List<Studio> allStudios = DBHelper.getAll(Studio.class);
+
         List<Film> filmsForStudio1 = DBStudio.getFilmsForStudio(studio1);
 
         List<Film> filmsForDirector1 = DBDirector.getFilmsForDirector(director1);
 
         List<Film> filmsForDirector2 = DBDirector.getFilmsForDirector(director2);
+
+        DBActor.addActorToFilm(actor1, film1);
+        DBActor.addActorToFilm(actor1, film2);
+        DBActor.addActorToFilm(actor2, film3);
+        DBActor.addActorToFilm(actor3, film1);
+
+        List<Actor> actorsForFilm1 = DBFilm.getFilmsActors(film1);
+
+        List<Film> filmsForActor1 = DBActor.getActorsFilms(actor1);
+
+        List<Film> filmsForActor2 = DBActor.getActorsFilms(actor2);
+
 
     }
 }
