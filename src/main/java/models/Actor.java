@@ -6,7 +6,6 @@ import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "actors")
@@ -34,5 +33,9 @@ public class Actor extends Staff {
 
     public void setFilms(List<Film> films) {
         this.films = films;
+    }
+
+    public void addFilm(Film film){
+        this.films.add(film);
     }
 }
