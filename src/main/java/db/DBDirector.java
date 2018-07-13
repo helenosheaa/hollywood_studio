@@ -1,5 +1,6 @@
 package db;
 
+import models.Director;
 import models.Film;
 import models.Studio;
 import org.hibernate.Criteria;
@@ -9,16 +10,16 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class DBStudio {
+public class DBDirector {
 
     private static Session session;
 
-    public static List<Film> getFilmsForStudio(Studio studio) {
+    public static List<Film> getFilmsForDirector(Director director) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Film> results = null;
         try {
             Criteria cr = session.createCriteria(Film.class);
-            cr.add(Restrictions.eq("studio", studio));
+            cr.add(Restrictions.eq("director", director));
             results =  cr.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -27,6 +28,5 @@ public class DBStudio {
         }
         return results;
     }
-
 
 }
