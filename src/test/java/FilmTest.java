@@ -17,12 +17,12 @@ public class FilmTest {
     public void before() {
         director1 = new Director("Tim", "Burton", 20000000.00 );
         studio1 = new Studio("The Studio", 50000000.00);
-        film = new Film("Sweeny Todd", director1, studio1);
+        film = new Film("Sweeney Todd", director1, studio1);
     }
 
     @Test
     public void hasTitle() {
-        assertEquals("Sweeny Todd", film.getTitle());
+        assertEquals("Sweeney Todd", film.getTitle());
     }
 
 

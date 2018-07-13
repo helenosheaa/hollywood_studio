@@ -3,6 +3,7 @@ package models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "studios")
@@ -10,12 +11,11 @@ public class Studio {
     private int id;
     private String name;
     private double budget;
-    private List<Film> films;
+    private Set<Film> films;
 
     public Studio(String name, double budget) {
         this.name = name;
         this.budget = budget;
-        this.films = new ArrayList<Film>();
     }
 
     public Studio() {
@@ -48,11 +48,12 @@ public class Studio {
         this.budget = budget;
     }
 
-    public List<Film> getFilms() {
+    @OneToMany(mappedBy="studio", fetch = FetchType.LAZY)
+    public Set<Film> getFilms() {
         return films;
     }
 
-    public void setFilms(List<Film> films) {
+    public void setFilms(Set<Film> films) {
         this.films = films;
     }
 }
