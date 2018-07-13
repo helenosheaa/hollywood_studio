@@ -14,8 +14,7 @@ public class Film {
     private Director director;
     private Studio studio;
 
-    public Film(int id, String title, Director director, Studio studio) {
-        this.id = id;
+    public Film(String title, Director director, Studio studio) {
         this.title = title;
         this.actors = new ArrayList<Actor>();
         this.director = director;

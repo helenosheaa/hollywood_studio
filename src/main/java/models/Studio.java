@@ -12,8 +12,7 @@ public class Studio {
     private double budget;
     private List<Film> films;
 
-    public Studio(int id, String name, double budget) {
-        this.id = id;
+    public Studio(String name, double budget) {
         this.name = name;
         this.budget = budget;
         this.films = new ArrayList<Film>();
